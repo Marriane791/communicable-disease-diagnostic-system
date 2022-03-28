@@ -4,6 +4,7 @@ import Prediction from './Components/Prediction';
 import Sidebar from './Components/Sidebar';
 import styled from 'styled-components'
 import Chat from './Components/Chat';
+import Admin from './Components/Admin';
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
           </Route>
           <Route path = "/chat">
             <Chat />
+          </Route>
+          <Route path = "/admin">
+            <Admin />
           </Route>
           <Route path="/">
              Login
@@ -36,4 +40,5 @@ height:100vh;
 background-color:#0096ff;
 display:grid;
 grid-template-columns:200px auto;
+overflow:none;
 `
