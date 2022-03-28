@@ -24,7 +24,7 @@ function Sidebar() {
             }
         </Channels>
         <SidebarImg>
-            <img src='/images/kit2.jpg' />
+            <img src='/images/first-aid-kit-removebg.png' alt='Firstaid'/>
         </SidebarImg>
     </Main>
   )
@@ -63,8 +63,11 @@ font-size:12px;
 
 `
 const SidebarImg = styled.div`
-width:90px;
-height:90px;
+position:fixed;
+bottom:5vh;
+margin-left:30px;
+width:104px;
+height:104px;
 img {
     width:100%;
 }

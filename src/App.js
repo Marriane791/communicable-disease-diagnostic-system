@@ -3,16 +3,20 @@ import './App.css';
 import Prediction from './Components/Prediction';
 import Sidebar from './Components/Sidebar';
 import styled from 'styled-components'
+import Chat from './Components/Chat';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Container>
+        <Sidebar />
         <Switch>
           <Route path = "/predict">
-            <Sidebar />
             <Prediction />
+          </Route>
+          <Route path = "/chat">
+            <Chat />
           </Route>
           <Route path="/">
              Login
