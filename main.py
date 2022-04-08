@@ -1,9 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from motor.motor_asyncio import AsyncIOMotorClient
+import motor.motor_asyncio
 from decouple import config
   
 from routes.users import router as user_router
+from routes.predict.predictions import router as predict_router
+from routes.chat.chat import router as chat_router
 
 # initialise fastapi
 app = FastAPI()
@@ -14,24 +16,23 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins = origins,
     allow_credentials = True,
-    allow_methods = ["*"],
-    allow_headers = ["*"],
+    allow_methods = ["GET"],
+    allow_headers = ["Access-Control-Allow-Origin"],
 )
 
-MONGO_DETAILS = config("MONGODB_URL")
 
 
 # Db connectivity
 
-@app.on_event("startup")
-async def startup_db_client():
-    app.mongodb_client = AsyncIOMotorClient('MONGO_DETAILS')
-    app.mongodb = app.mongodb_client[config("DB_NAME")]
 
+MONGO_DETAILS = "mongodb://localhost:27017"
 
-@app.on_event("shutdown")
-async def shutdown_db_client():
-    app.mongodb_client.close()
+client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_DETAILS)
+
+database = client.diagnose
+
+app.collection = database.get_collection("health_system")
+
 
 # Routes
 @app.get("/")
@@ -40,6 +41,8 @@ def pong():
 
 
 app.include_router(user_router, tags=["users"], prefix="/user" )
+app.include_router(predict_router,tags=["predict"],prefix="/predict")
+app.include_router(chat_router, tags=["chat"],prefix="/chat")
 
 
 
