@@ -6,13 +6,12 @@ function DisplaySet() {
     <SetUser>
         <User>
             <UserImg>
-                image
-            <img src='/images/BKE_5549.jpg' alt='user'/>
+               <img src='/images/BKE_5549.jpg' alt='image_user' />
             </UserImg>
             <UserName> Dr.Marrie</UserName>
         </User>
-        <LogOut></LogOut>
-        <ChangePin></ChangePin>
+        <LogOut>LogOut</LogOut>
+        <ChangePin>ChangePin</ChangePin>
     </SetUser>
   )
 }
@@ -20,37 +19,52 @@ function DisplaySet() {
 export default DisplaySet
 
 const SetUser = styled.div`
-height:50vh;
-border-radius:15px;
-margin-right:15px;
-margin-left:15px;
-margin-top:130px;
-background-color:#0096ff;
+display:flex;
+flex-direction:column;
+background-color:rgb(33, 111, 237);
+padding:10px;
+border-radius:25px;
+width:124px;
+box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.3); 
 
 `
 const User = styled.div`
-height:67px;
 display:flex;
-align-items:center; 
+align-items:center;
 justify-content:center;
-background:red;
+border-bottom:1px solid #7393B3;
+height:68px;
 `
 
-const LogOut = styled.div``
+const LogOut = styled.div`
+cursor:pointer;
+border-bottom:1px solid #7393B3;
+height:68px;
+display:flex;
+align-items:center;
+justify-content:center;
 
-const ChangePin = styled.div``
+
+`
+
+const ChangePin = styled.div`
+cursor:pointer;
+display:flex;
+align-items:center;
+justify-content:center;
+padding-top:30px;
+`
 
 const UserImg = styled.div`
 width:36px;
 height:36px;
-border-radius:50%;
+border-radius:12px;
 overflow:hidden;
 margin-right:5px;
-padding:10px;
 img {
     width:100%;
 }
 `
 
-const UserName = styled.span``
+const UserName = styled.div``
 

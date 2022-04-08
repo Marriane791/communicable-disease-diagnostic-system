@@ -1,13 +1,34 @@
-import React from 'react'
+import React, {  } from 'react'
 import styled from 'styled-components'
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 
+// import {useStateValue} from './Stateprovider';
+
+
 function ChatInput() {
+
+//    const [input,setInput] = useState("");
+//    const [{user}] = useStateValue();
+   
+//    const sendMessage = (e) => {
+//        e.preventDefault();
+//        axios.post('/chat/chat',{
+//            message: input,
+//            timestamp:Date.now(),
+//            user:user.displayName,
+//            userImage:user.photoURL
+//        })
+//        setInput("")
+//    };
+
   return (
     <Chatconn>
         <InputContainer>
         <form>
-            <input type="text" placeholder='Connect with fellow doctors in the channel ...'/>
+            <input type="text" 
+            value=""
+            onChange=""
+            placeholder= {'Message'}/>
             <SendButton>
                 <Send/>
             </SendButton>
